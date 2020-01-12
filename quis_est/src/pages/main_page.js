@@ -3,6 +3,7 @@ import Header from "../components/header";
 import InputText from "../components/input_text";
 import Results from "../components/results";
 import axios from 'axios';
+import Footer from "../components/footer";
 class MainPage extends Component {
     constructor(props) {
         super(props)
@@ -40,7 +41,7 @@ class MainPage extends Component {
 
     async getDataAxios(text){
         console.log("state text: " + text)
-        var url = "http://ddlongo.pythonanywhere.com/?text=" + text
+        var url = "https://ddlongo.pythonanywhere.com/?text=" + text
         console.log("url " + url)
         const response =
             await axios.get(url)
@@ -59,6 +60,7 @@ class MainPage extends Component {
                 <Header/>
                 <InputText handleTextSubmitted={this.handleTextSubmitted}/>
                 <Results analysisResults={this.state.analysisResults}/>
+                <Footer/>
             </div>
         )
     }
